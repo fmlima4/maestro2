@@ -1,0 +1,14 @@
+{
+    "name": "Maestro",
+    "description": "Sistema de matricula",
+    "authors": [
+        {
+            "name": "jardel",
+            "email": "jardel.santos@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.8",
+        "kevinlebrun/slug.php": "1.*"
+    }
+}
