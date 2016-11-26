@@ -10,6 +10,7 @@
             $campos = implode(", ", array_keys($dados));
             $valores = "'".implode("','", array_values($dados))."'";
             return $this->db->query("INSERT INTO `{$this->_tabela}` ({$campos}) VALUES ({$valores})");
+            
         }
         
         public function read( $where = NULL, $limit = null, $offset = null, $orderby = null) {
@@ -22,6 +23,13 @@
             return $q->fetchAll();
         }
         
+        public function readById($id){
+        	$q = $this->db->query("SELECT * FROM `{$this->_tabela}` WHERE id='$id'");
+        	$q->setFetchMode(PDO::FETCH_ASSOC);
+        	return $q->fetch();
+        }
+        
+        
         public function update( array $dados, $where) {
             $campos = array();
             foreach ($dados as $ind => $val) {
@@ -33,6 +41,10 @@
         
         public function delete( $where) {
             return $this->db->query("DELETE FROM `{$this->_tabela}` WHERE {$where}");
+        }
+        
+        public function query($string){
+        	return $this->db->query($string);
         }
         
     }

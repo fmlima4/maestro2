@@ -3,7 +3,7 @@
  
  	<div id="top" class="row">
 		<div class="col-sm-3">
-			<h2>Itens</h2>
+			<h2>Cursos</h2>
 		</div>
 		<div class="col-sm-6">
 			
@@ -17,7 +17,7 @@
 			
 		</div>
 		<div class="col-sm-3">
-			<a href="#" class="btn btn-primary pull-right h2">Novo Item</a>
+			<a href="http://localhost/maestro2/cursos/adicionar" class="btn btn-primary pull-right h2">Novo Item</a>
 		</div>
 	</div> <!-- /#top -->
  
@@ -29,83 +29,41 @@
 		<table class="table table-striped" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th>ID</th>
 					<th>Nome</th>
-					<th>Sexo</th>
-					<th>Data</th>
-					<th class="actions">A��es</th>
+					<th>Descrição</th>
+					<th>Carga horaria</th>
+					<th>Periodo</th>
+					<th>Professor</th>
+					<th>Lotação</th>
+					<th>Inicio</th>
+					<th>Fim</th>
+					<th class="actions">Ações</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1001</td>
-					<td>Teste1</td>
-					<td>Masculino</td>
-					<td>01/10/2016</td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
-						<a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-				<tr>
-					<td>1002</td>
-					<td>Teste2</td>
-					<td>Feminino</td>
-					<td>01/10/2016</td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
-						<a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-				<tr>
-					<td>1003</td>
-					<td>Teste3</td>
-					<td>Masculino</td>
-					<td>01/10/2016</td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
-						<a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-				<tr>
-					<td>1004</td>
-					<td>Teste4</td>
-					<td>Feminino</td>
-					<td>01/10/2016</td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
-						<a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-				<tr>
-					<td>1005</td>
-					<td>Teste5</td>
-					<td>Masculino</td>
-					<td>01/10/2016</td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
-						<a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-				<tr>
-					<td>1006</td>
-					<td>Teste6</td>
-					<td>Feminino</td>
-					<td>01/10/2016</td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
-						<a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+			
+			<?php
+	  		foreach ($view_cursos as $linha){
+	  		?>
+	  	<tr>
+	    	<td><?php echo $linha['titulo'];?></td>
+	    	<td><?php echo $linha['descricao'];?></td>
+	    	<td><?php echo $linha['carga_horaria'];?></td>
+	    	<td><?php echo $linha['periodo'];?></td>
+	    	<td><?php echo $linha['professor'];?></td>
+	    	<td><?php echo $linha['lotacao'];?></td>
+	    	<td><?php echo $linha['data_inicio'];?></td>
+	    	<td><?php echo $linha['data_fim'];?></td>
+	    	<td class="actions">
+				<a class="btn btn-success btn-xs" href="http://localhost/maestro2/cursos/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
+				<a class="btn btn-warning btn-xs" href="http://localhost/maestro2/cursos/editar/id/<?php echo $linha['id'];?>">Editar</a>
+				<a class="btn btn-danger btn-xs"  href="http://localhost/maestro2/cursos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>			
+			</td>
+	    		    	
+	  	</tr>	 	 	  	
+	  	
+	  	<?php
+	  	}?>
 	
 	</div> <!-- /#list -->
 	
@@ -116,7 +74,7 @@
 				<li class="disabled"><a>1</a></li>
 				<li><a href="#">2</a></li>
 				<li><a href="#">3</a></li>
-				<li class="next"><a href="#" rel="next">Pr�ximo &gt;</a></li>
+				<li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
 			</ul><!-- /.pagination -->
 		</div>
 	</div> <!-- /#bottom -->
