@@ -16,8 +16,7 @@ class cursosModel extends \model {
 		$sql = "INSERT INTO `{$this->_tabela}` ({$campos}) VALUES ({$valores})";
 		return parent::query ( $sql );
 	}
-	
-	
+		
 	public function delete( $id) {
 		echo $sql = "DELETE FROM `{$this->_tabela}` WHERE id = '$id'";
 		return parent::query($sql);

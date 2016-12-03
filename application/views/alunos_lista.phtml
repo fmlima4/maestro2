@@ -51,9 +51,9 @@ foreach ($view_alunos as $linha){
 	    	<td><?php echo $linha['CPF'];?></td>
 	    	<td><?php echo $linha['id_usuario'];?></td>
 	      	<td class="actions">
-				<a class="btn btn-success btn-xs" href="http://localhost/maestro2/cursos/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
-				<a class="btn btn-warning btn-xs" href="http://localhost/maestro2/cursos/editar/id/<?php echo $linha['id'];?>">Editar</a>
-				<a class="btn btn-danger btn-xs"  href="http://localhost/maestro2/cursos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>			
+				<a class="btn btn-success btn-xs" href="http://localhost/maestro2/alunos/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
+				<a class="btn btn-warning btn-xs" href="http://localhost/maestro2/alunos/editar/id/<?php echo $linha['id'];?>">Editar</a>
+				<a class="btn btn-danger btn-xs" onclick="return confirm('confirmar exclusão de: <?php echo $linha['nome'];?>');" href="http://localhost/maestro2/alunos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>			
 			</td>
 	    		    	
 	  	</tr>	 	 	  	

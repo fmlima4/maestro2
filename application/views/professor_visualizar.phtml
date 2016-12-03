@@ -1,0 +1,32 @@
+<input type="button" position="rigth" value="Voltar" onClick="history.go(-1)" class="btn btn-primary btn-md pull-right h2"></button> 
+
+<form action="" method="post">
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Nome</label> <input type="text"
+				class="form-control" id="funcionario" name="funcionario"
+				value="<?php echo isset($view_funcionario) ? $view_funcionario: '' ; ?>">
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Função</label> <input type="text"
+				class="form-control" id="funcao" name="funcao"
+				value="<?php echo isset($view_funcao) ? $view_funcao : '' ; ?>">
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Ativo</label> <input
+				type="text" class="form-control" id="ativo"
+				placeholder="0 desativado 1 para ativado" name="ativo"
+				value="<?php echo isset($view_ativo) ? $view_ativo : '' ; ?>">
+		
+	
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Id_usuario</label> <input type="text"
+				class="form-control" id="id_usuario" name="id_usuario"
+				value="<?php echo isset($view_id_usuario) ? $view_id_usuario : '' ; ?>">
+		</div>
+	</div>

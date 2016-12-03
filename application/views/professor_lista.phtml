@@ -1,0 +1,123 @@
+</section>
+<div id="main" class="container-fluid" style="margin-top: 50px">
+
+	<div id="top" class="row">
+		<div class="col-sm-3">
+			<h2>Professores</h2>
+		</div>
+		<div class="col-sm-6">
+
+			<div class="input-group h2">
+				<input name="data[search]" class="form-control" id="search"
+					type="text" placeholder="Pesquisar Itens"> <span
+					class="input-group-btn">
+					<button class="btn btn-primary" type="submit">Pesquisar</button>
+				</span>
+			</div>
+
+		</div>
+		<div class="col-sm-3">
+			<a href="http://localhost/maestro2/professor/adicionar"
+				class="btn btn-primary pull-right h2">Novo Item</a>
+		</div>
+	</div>
+	<!-- /#top -->
+
+
+	<hr>
+	<div id="list" class="row">
+
+		<div class="table-responsive col-md-12">
+			<table class="table table-striped" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Função</th>
+						<th>Ativo</th>
+						<th>id_usuario</th>
+						<th class="actions">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+
+<?php
+foreach ( $view_professor as $linha ) {
+	?>
+	  	<tr>
+						<td><?php echo $linha['funcionario'];?></td>
+						<td><?php echo $linha['funcao'];?></td>
+						<td><?php echo $linha['ativo'];?></td>
+						<td><?php echo $linha['id_usuario'];?></td>
+						<td class="actions">
+							<a class="btn btn-success btn-xs"
+							href="http://localhost/maestro2/professor/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
+							
+							<a class="btn btn-warning btn-xs"
+							href="http://localhost/maestro2/professor/editar/id/<?php echo $linha['id'];?>">Editar</a>
+
+							<a class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal" ">Excluir</a> 
+							
+							
+							<!--  	<a class="btn btn-danger btn-xs"
+							onclick="return confirm('confirmar exclusão de: <?php echo $linha['funcionario'];?>');"
+							href="http://localhost/maestro2/professor/deletar/id/<?php echo $linha['id'];?>">Excluir</a>
+						</td>
+						
+						-->
+					
+					</tr>	 	 	  	
+	  	
+	  	<?php
+}
+?>
+	
+	</div>
+
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Confirmar exclusão</h4>
+								</div>
+								<div class="modal-body">
+									<p>Confirmar exclusão?</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-danger btn-ls" name="delet"
+										 href="http://localhost/maestro2/professor/deletar/id/<?php echo $linha['id'];?>"
+										data-dismiss="modal" >Confirmar</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					</div>
+
+
+
+					<!-- /#list -->
+
+					<div id="bottom" class="row">
+						<div class="col-md-12">
+							<ul class="pagination">
+								<li class="disabled"><a>&lt; Anterior</a></li>
+								<li class="disabled"><a>1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+							</ul>
+							<!-- /.pagination -->
+						</div>
+					</div>
+					<!-- /#bottom -->
+					</div>
+					</body>
+					</html>

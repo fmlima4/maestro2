@@ -8,7 +8,17 @@ class professorModel extends \model {
 		parent::__construct();
 		$this->_tabela = 'funcionario';
 	}
+	
+	public function select() {
+		return $this->read ( null, null, null, 'id ASC' );
+	}
+	
+	public function delete( $id) {
+		echo $sql = "DELETE FROM `{$this->_tabela}` WHERE id = '$id'";
+		return parent::query($sql);
+	}
 
 }
+
 
 ?>

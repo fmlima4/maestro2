@@ -57,7 +57,7 @@
 	    	<td class="actions">
 				<a class="btn btn-success btn-xs" href="http://localhost/maestro2/cursos/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
 				<a class="btn btn-warning btn-xs" href="http://localhost/maestro2/cursos/editar/id/<?php echo $linha['id'];?>">Editar</a>
-				<a class="btn btn-danger btn-xs"  href="http://localhost/maestro2/cursos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>			
+				<a class="btn btn-danger btn-xs"  onclick="return confirm('confirmar exclusão de: <?php echo $linha['titulo'];?>');" href="http://localhost/maestro2/cursos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>			
 			</td>
 	    		    	
 	  	</tr>	 	 	  	

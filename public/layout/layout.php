@@ -16,7 +16,7 @@
 		<nav class="navbar navbar-default">
 		
 			<div class="navbar-header">
-				<a class="navbar-brand" href="funcionario_lista.php">
+				<a class="navbar-brand" href="dashboard/index">
 					<img class="img-responsive" src="public/img/images.png" style="height:40px"/>
 				</a>
 			</div>
@@ -28,7 +28,7 @@
 					<a href="cursos/listar">Cursos</a>
 				</li>
 				<li >
-					<a href="professores/index">Professores</a>
+					<a href="professor/listar">Professores</a>
 				</li>
 				<li>
 					<a href="alunos/listar">Alunos</a>
