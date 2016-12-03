@@ -4,6 +4,7 @@ namespace application\controllers;
 
 class cursos extends \controller {
 	public function listar() {
+		$data['pagina'] = parent::getController();
 		$cursos = new \application\models\cursosModel ();
 		$cursos_lista = $cursos->select ();
 		$data ['cursos'] = $cursos_lista;
@@ -11,6 +12,7 @@ class cursos extends \controller {
 	}
 	
 	public function adicionar() {
+		$data['pagina'] = parent::getController();
 		$professorModel = new \application\models\professorModel ();
 		$data ['professores'] = $professorModel->read ();
 		
@@ -52,7 +54,7 @@ class cursos extends \controller {
 	}
 	
 	public function deletar() {
-		
+		$data['pagina'] = parent::getController();
 		// capturar o ID
 		$id = parent::getParam ( 'id' );
 		$cursos = new \application\models\cursosModel ();
@@ -61,6 +63,7 @@ class cursos extends \controller {
 		$this->loadView ( 'cursos_del', $data );
 	}
 	public function visualizar() {
+		$data['pagina'] = parent::getController();
 		$id = parent::getParam ( 'id' );
 		$cursosModel = new \application\models\cursosModel ();
 		$data = $cursosModel->readById ( $id );
@@ -70,6 +73,8 @@ class cursos extends \controller {
 	}
 	
 	public function editar(){
+		
+		$data['pagina'] = parent::getController();
 	
 		//capturar o ID
 		$id = parent::getParam('id');

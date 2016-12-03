@@ -1,68 +1,85 @@
 </section>
 <div id="main" class="container-fluid" style="margin-top: 50px">
 
+<?php if(isset($view_mensagem)){?>
+	<div class="alert alert-<?php echo $view_mensagem['type'];?>">
+		<p><?php echo $view_mensagem['info'];?></p>
+	</div>
+<?php } ?>
+
 <div id="top" class="row">
-<div class="col-sm-3">
-<h2>Alunos</h2>
+		<div class="col-sm-3">
+			<h2>Alunos</h2>
+		</div>
+		<div class="col-sm-6">
+			<form action="/maestro2/alunos/pesquisar" method="post">
+				<div class="input-group h2">
+					<input name="search" class="form-control" id="search" type="text"
+						placeholder="Pesquisar Itens"
+						value="<?php echo $view_termo??null ;?>"> <span
+						class="input-group-btn">
+						<button class="btn btn-primary" type="submit">Pesquisar</button>
+					</span>
+			
+			</form>
+		</div>
+
+	</div>
+	<div class="col-sm-3">
+		<a href="http://localhost/maestro2/alunos/adicionar"
+			class="btn btn-primary pull-right h2">Novo Item</a>
+	</div>
 </div>
-<div class="col-sm-6">
-	
-<div class="input-group h2">
-<input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
-<span class="input-group-btn">
-<button class="btn btn-primary" type="submit">Pesquisar
-</button>
-</span>
-</div>
-	
-</div>
-<div class="col-sm-3">
-<a href="http://localhost/maestro2/alunos/adicionar" class="btn btn-primary pull-right h2">Novo Item</a>
-</div>
-</div> <!-- /#top -->
+<!-- /#top -->
 
 
 <hr>
 <div id="list" class="row">
 
-<div class="table-responsive col-md-12">
-<table class="table table-striped" cellspacing="0" cellpadding="0">
-<thead>
-<tr>
-<th>Nome</th>
-<th>Email</th>
-<th>Telefone</th>
-<th>Endereço</th>
-<th>CPF</th>
-<th>id_usuario</th>
-<th class="actions">Ações</th>
-</tr>
-</thead>
-<tbody>
+	<div class="table-responsive col-md-12">
+		<table class="table table-striped" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Telefone</th>
+					<th>Endereço</th>
+					<th>CPF</th>
+					<th>id_usuario</th>
+					<th class="actions">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
 	
 <?php
-foreach ($view_alunos as $linha){
+foreach ( $view_alunos as $linha ) {
 	?>
 	  	<tr>
-	    	<td><?php echo $linha['nome'];?></td>
-	    	<td><?php echo $linha['email'];?></td>
-	    	<td><?php echo $linha['telefone'];?></td>
-	    	<td><?php echo $linha['endereco'];?></td>
-	    	<td><?php echo $linha['CPF'];?></td>
-	    	<td><?php echo $linha['id_usuario'];?></td>
-	      	<td class="actions">
-				<a class="btn btn-success btn-xs" href="http://localhost/maestro2/alunos/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
-				<a class="btn btn-warning btn-xs" href="http://localhost/maestro2/alunos/editar/id/<?php echo $linha['id'];?>">Editar</a>
-				<a class="btn btn-danger btn-xs" onclick="return confirm('confirmar exclusão de: <?php echo $linha['nome'];?>');" href="http://localhost/maestro2/alunos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>			
-			</td>
-	    		    	
-	  	</tr>	 	 	  	
+					<td><?php echo $linha['nome'];?></td>
+					<td><?php echo $linha['email'];?></td>
+					<td><?php echo $linha['telefone'];?></td>
+					<td><?php echo $linha['endereco'];?></td>
+					<td><?php echo $linha['CPF'];?></td>
+					<td><?php echo $linha['id_usuario'];?></td>
+					<td class="actions"><a class="btn btn-success btn-xs"
+						href="http://localhost/maestro2/alunos/visualizar/id/<?php echo $linha['id'];?>">Visualizar</a>
+						<a class="btn btn-warning btn-xs"
+						href="http://localhost/maestro2/alunos/editar/id/<?php echo $linha['id'];?>">Editar</a>
+						<a class="btn btn-danger btn-xs"
+						onclick="return confirm('confirmar exclusão de: <?php echo $linha['nome'];?>');"
+						href="http://localhost/maestro2/alunos/deletar/id/<?php echo $linha['id'];?>">Excluir</a>
+					</td>
+
+				</tr>	 	 	  	
 	  	
 	  	<?php
-	  	}?>
+}
+?>
 	
-	</div> <!-- /#list -->
 	
+	</div>
+	<!-- /#list -->
+
 	<div id="bottom" class="row">
 		<div class="col-md-12">
 			<ul class="pagination">
@@ -71,9 +88,11 @@ foreach ($view_alunos as $linha){
 				<li><a href="#">2</a></li>
 				<li><a href="#">3</a></li>
 				<li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
-			</ul><!-- /.pagination -->
+			</ul>
+			<!-- /.pagination -->
 		</div>
-	</div> <!-- /#bottom -->
- </div>			
-	</body>
+	</div>
+	<!-- /#bottom -->
+</div>
+</body>
 </html>

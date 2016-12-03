@@ -3,13 +3,17 @@
 namespace application\controllers;
 
 class professor extends \controller {
+	
 	public function listar() {
+		$data ['pagina'] = parent::getController ();
 		$professor = new \application\models\professorModel ();
 		$professor_lista = $professor->select ();
 		$data ['professor'] = $professor_lista;
 		$this->loadView ( 'professor_lista', $data );
 	}
+	
 	public function adicionar() {
+		$data ['pagina'] = parent::getController ();
 		if (isset ( $_POST ['btsalvar'] )) {
 			
 			// capturar dados do formulario
@@ -18,14 +22,12 @@ class professor extends \controller {
 			$dadosFormulario ['funcao'] = $_POST ['funcao'] ?? '';
 			$dadosFormulario ['ativo'] = $_POST ['ativo'] ?? '';
 			
-						
-			
-			/*if (isset($dadosFormulario ['id_usuario']) && !empty($dadosFormulario ['id_usuario']))
-			echo "preencha corretamente id_usuario";
-			else*/
+			/*
+			 * if (isset($dadosFormulario ['id_usuario']) && !empty($dadosFormulario ['id_usuario']))
+			 * echo "preencha corretamente id_usuario";
+			 * else
+			 */
 			$dadosFormulario ['id_usuario'] = $_POST ['id_usuario'] ?? '';
-			
-			
 			
 			// 1 - instanciar o model
 			$professorModel = new \application\models\professorModel ();
@@ -34,8 +36,9 @@ class professor extends \controller {
 		
 		$this->loadView ( 'professor_adicionar' );
 	}
-	public function deletar() {
 		
+	public function deletar() {
+		$data ['pagina'] = parent::getController ();
 		// capturar o ID
 		$id = parent::getParam ( 'id' );
 		$professor = new \application\models\professorModel ();
@@ -43,15 +46,18 @@ class professor extends \controller {
 		$data ['professor'] = $professor_lista;
 		$this->loadView ( 'professor_del', $data );
 	}
+	
 	public function visualizar() {
+		$data ['pagina'] = parent::getController ();
 		$id = parent::getParam ( 'id' );
 		$professorModel = new \application\models\professorModel ();
 		$data = $professorModel->readById ( $id );
 		$data ['professores'] = $professorModel->read ();
 		$this->loadView ( 'professor_visualizar', $data );
 	}
+	
 	public function editar() {
-		
+		$data ['pagina'] = parent::getController ();
 		// capturar o ID
 		$id = parent::getParam ( 'id' );
 		
@@ -74,6 +80,22 @@ class professor extends \controller {
 		
 		$this->loadView ( 'professor_adicionar', $data );
 	}
+		
+	public function pesquisar() {
+		if (isset ( $_SESSION ['mensagem'] )) {
+			$data ['mensagem'] = $_SESSION ['mensagem'];
+			unset ( $_SESSION ['mensagem'] );
+		}
+		
+		$data ['pagina'] = parent::getController ();
+		
+		// Recebe o POST['search']
+		$professor = new \application\models\professorModel ();
+		$data ['termo'] = $_POST ['search'] ?? null;
+		$professor_lista = $professor->search ( $data ['termo'] );
+		$data ['professor'] = $professor_lista;
+		
+		$this->loadView ( 'professor_lista', $data );
+	}
 }
-
 ?>

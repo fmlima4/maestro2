@@ -1,5 +1,10 @@
- 
-<input type="button" position="rigth" value="Voltar" onClick="history.go(-1)" class="btn btn-primary btn-md pull-right h2"></button> 
+<header>
+    <h1>Visualizar aluno</h1>
+</header>
+
+<input type="button" position="rigth" value="Voltar"
+	onClick="history.go(-1)" class="btn btn-primary btn-md pull-right h2">
+</button>
 
 
 
@@ -7,7 +12,7 @@
 	<div class="row">
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">Nome</label> <input type="text"
-				class="form-control" id="nome" name="nome"
+				class="form-control" id="nome" name="nome" readonly
 				value="<?php echo isset($view_nome) ? $view_nome: '' ; ?>">
 		</div>
 	</div>
@@ -15,7 +20,7 @@
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">Email</label> <input type="text"
 				class="form-control" id="email" name="email"
-				placeholder="informe um email valido"
+				placeholder="informe um email valido" readonly
 				value="<?php echo isset($view_email) ? $view_email : '' ; ?>">
 		</div>
 	</div>
@@ -23,7 +28,7 @@
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">Telefone</label> <input type="text"
 				class="form-control" id="telefone" placeholder="informe um telefone"
-				name="telefone"
+				name="telefone" readonly
 				value="<?php echo isset($view_telefone) ? $view_telefone : '' ; ?>">
 		</div>
 	</div>
@@ -31,7 +36,7 @@
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">Endereço</label> <input type="text"
 				class="form-control" id="endereco" placeholder="informe o endereço"
-				name="endereco"
+				name="endereco" readonly
 				value="<?php echo isset($view_endereco) ? $view_endereco : '' ; ?>">
 		</div>
 	</div>
@@ -40,7 +45,7 @@
 	<div class="row">
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">CPF</label> <input type="text"
-				class="form-control" id="CPF" placeholder="informe um CPF valido"
+				class="form-control" id="CPF" placeholder="informe um CPF valido" readonly
 				name="CPF" value="<?php echo isset($view_CPF) ? $view_CPF : '' ; ?>">
 		</div>
 	</div>
@@ -49,7 +54,7 @@
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">id_usuario</label> <input type="text"
 				class="form-control" id="id_usuario"
-				placeholder="informe uma id numerica" name="id_usuario"
+				placeholder="informe uma id numerica" name="id_usuario" readonly
 				value="<?php echo isset($view_id_usuario) ? $view_id_usuario : '' ; ?>">
 		</div>
 	</div>
@@ -57,9 +62,16 @@
 	<div class="row">
 		<div class="form-group col-md-5">
 			<label for="exampleInputEmail1">Arquivo</label> <input type="file"
-				class="form-control" id="arquivo" name="arquivo">
+				class="form-control" id="arquivo" name="arquivo" readonly> 
 		</div>
 	</div>
+
+	<div class="row">
+		Foto atual:
+		<img src='<?php echo isset($view_file) ? $view_file: '' ; ?>'
+			width="200" height="200" />
+	</div>
+
 </form>
 
-	
+

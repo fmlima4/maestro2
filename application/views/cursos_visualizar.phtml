@@ -1,58 +1,77 @@
-<input type="button" position="rigth" value="Voltar" onClick="history.go(-1)" class="btn btn-primary btn-md pull-right h2"></button> 
+<header>
+    <h1>Visualizar curso</h1>
+</header>
 
-  <form action="" method="post">
-  	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Nome</label>
-  	  	<input type="text" class="form-control" id="titulo"  name="titulo" value="<?php echo isset($view_titulo) ? $view_titulo: '' ; ?>" >
-  	  </div>
-  	 </div>
-  	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Descrição</label>
-  	  	<input type="text" class="form-control" id="descricao"  name="descricao" value="<?php echo isset($view_descricao) ? $view_descricao : '' ; ?>" >
-  	  </div>
-	</div>
+<div class="row">
+	<input type="button" value="Voltar" onClick="history.go(-1)"
+		class="btn btn-primary btn-md pull-right h2">
+	</button>
+	<input type="button" value="Editar" class="btn btn-warning btn-md btn-md pull-right h2"
+		href="http://localhost/maestro2/cursos/editar/id/<?php echo $linha['id'];?>">
+	</button>
+</div>
+<form action="" method="post">
 	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Carga Horaria</label>
-  	  	<input type="text" class="form-control" id="carga_horaria" placeholder="Digite a carga horaria do curso" name="carga_horaria" value="<?php echo isset($view_carga_horaria) ? $view_carga_horaria : '' ; ?>" >
-  	  </div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Nome</label> <input type="text"
+				readonly class="form-control" id="titulo" name="titulo"
+				value="<?php echo isset($view_titulo) ? $view_titulo: '' ; ?>">
+		</div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Descrição</label> <input type="text"
+				readonly class="form-control" id="descricao" name="descricao"
+				value="<?php echo isset($view_descricao) ? $view_descricao : '' ; ?>">
+		</div>
 	</div>
+
 	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Periodo</label>
-  	  	<input type="text" class="form-control" id="periodo" placeholder="informe o periodo" name="periodo" value="<?php echo isset($view_periodo) ? $view_periodo : '' ; ?>" >
-  	  </div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Carga Horaria</label> <input
+				type="text" readonly class="form-control" id="carga_horaria"
+				placeholder="Digite a carga horaria do curso" name="carga_horaria"
+				value="<?php echo isset($view_carga_horaria) ? $view_carga_horaria : '' ; ?>">
+		</div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Periodo</label> <input type="text"
+				readonly class="form-control" id="periodo"
+				placeholder="informe o periodo" name="periodo"
+				value="<?php echo isset($view_periodo) ? $view_periodo : '' ; ?>">
+		</div>
 	</div>
-	
-	<label for="exampleInputEmail1">Professor</label>
-	<select name="professor">
-		<?php foreach($view_professores as $professor){?>
-		<option value="<?php echo $professor['id'];?>" <?php echo (isset($view_professor) and $professor['id'] = $view_professor )? 'selected=selected' : '' ; ?>><?php echo $professor['funcionario'];?></option>
-		<?php } ?>
-	</select>
-	
+
 	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Lotação</label>
-  	  	<input type="text" class="form-control" id="periodo" placeholder="informe a lota��o" name="lotacao" value="<?php echo isset($view_lotacao) ? $view_lotacao : '' ; ?>" >
-  	  </div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Lotação</label> <input type="text"
+				readonly class="form-control" id="periodo"
+				placeholder="informe a lota��o" name="lotacao"
+				value="<?php echo isset($view_lotacao) ? $view_lotacao : '' ; ?>">
+		</div>
+		<div>
+			<label for="exampleInputEmail1">Professor</label> <select
+				name="professor" readonly>
+				<?php foreach($view_professores as $professor){?>
+				<option value="<?php echo $professor['id'];?>"
+					<?php echo (isset($view_professor) and $professor['id'] = $view_professor )? 'selected=selected' : '' ; ?>><?php echo $professor['funcionario'];?></option>
+				<?php } ?>
+			</select>
+		</div>
 	</div>
-	
+
 	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Data de inicio</label>
-  	  	<input type="text" class="form-control" id="periodo" placeholder="informe a data de inicio" name="inicio" value="<?php echo isset($view_data_inicio) ? $view_data_inicio : '' ; ?>" >
-  	  </div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Data de inicio</label> <input
+				type="text" readonly class="form-control" id="periodo"
+				placeholder="informe a data de inicio" name="inicio"
+				value="<?php echo isset($view_data_inicio) ? $view_data_inicio : '' ; ?>">
+		</div>
+		<div class="form-group col-md-5">
+			<label for="exampleInputEmail1">Data de fim</label> <input
+				type="text" readonly class="form-control" id="periodo"
+				placeholder="informe a data de fim" name="fim"
+				value="<?php echo isset($view_data_fim) ? $view_data_fim : '' ; ?>">
+		</div>
 	</div>
-	
-	<div class="row">
-  	  <div class="form-group col-md-5">
-  	  	<label for="exampleInputEmail1">Data de fim</label>
-  	  	<input type="text" class="form-control" id="periodo" placeholder="informe a data de fim" name="fim" value="<?php echo isset($view_data_fim) ? $view_data_fim : '' ; ?>" >
-  	  </div>
-	</div>
+
 	<hr />
-  </form>
- </div>
+</form>
+</div>

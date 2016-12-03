@@ -17,6 +17,10 @@ class professorModel extends \model {
 		echo $sql = "DELETE FROM `{$this->_tabela}` WHERE id = '$id'";
 		return parent::query($sql);
 	}
+	
+	public function search($termo){
+		return $this->read ( "nome LIKE '%{$termo}%'", null, null, 'id ASC' );
+	}
 
 }
 

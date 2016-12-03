@@ -14,10 +14,12 @@
         }
         
         public function read( $where = NULL, $limit = null, $offset = null, $orderby = null) {
-            $where = ($where != null ? "WHERE {$where}" : "");
+            
+        	$where = ($where != null ? "WHERE {$where}" : "");
             $limit = ($limit != null ? "LIMIT {$limit}" : "");
             $offset = ($offset != null ? "OFFSET {$offset}" : "");
             $orderby = ($orderby != null ? "ORDER BY {$orderby}" : "");
+            
             $q = $this->db->query("SELECT * FROM `{$this->_tabela}` {$where} {$orderby} {$limit} {$offset}");
             $q->setFetchMode(PDO::FETCH_ASSOC);
             return $q->fetchAll();

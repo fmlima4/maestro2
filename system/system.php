@@ -19,6 +19,10 @@
 		public function setControler(){
 			$this->controler=$this->partesUrl[0];
 		}
+		public function getController(){
+			return $this->controler;
+		}
+				
 		public function setAction(){
 			$this->action=$this->partesUrl[1];
 		}
@@ -106,3 +110,7 @@
 			}
 		}
 	}
+	
+	
+
+	

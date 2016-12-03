@@ -1,9 +1,12 @@
- 
- <?php
-	include ('system/system.php');
+  <?php
+  
+  	session_start();
+  	
+  	include ('system/system.php');
 	require_once ('system/controller.php');
 	require_once ('system/model.php');
 	require_once ('config.php');
+	require_once('system/upload.php');
 	
 	function __autoload($file){
 	
@@ -25,10 +28,10 @@
 $slugifier = new \Slug\slugifier();
 $slugifier->setTransliterate(true);
 
-$frase = 'Frase com acentuação para teste de criação de slug';
+$frase = 'Frase com acentuaï¿½ï¿½o para teste de criaï¿½ï¿½o de slug';
 $slug = $slugifier->slugify($frase);
 
 echo'<b> frase natural: </br>'. $frase."<br/><br/>";
-echo'<b> frase com aplicação slug: </br>'. $slug."<br/><br/>";
+echo'<b> frase com aplicaï¿½ï¿½o slug: </br>'. $slug."<br/><br/>";
 */
 ?>

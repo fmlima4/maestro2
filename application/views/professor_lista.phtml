@@ -1,19 +1,28 @@
 </section>
 <div id="main" class="container-fluid" style="margin-top: 50px">
 
+<?php if(isset($view_mensagem)){?>
+	<div class="alert alert-<?php echo $view_mensagem['type'];?>">
+		<p><?php echo $view_mensagem['info'];?></p>
+	</div>
+<?php } ?>
+
 	<div id="top" class="row">
 		<div class="col-sm-3">
 			<h2>Professores</h2>
 		</div>
 		<div class="col-sm-6">
 
+		<form action="/maestro2/professor/pesquisar" method="post">
 			<div class="input-group h2">
-				<input name="data[search]" class="form-control" id="search"
-					type="text" placeholder="Pesquisar Itens"> <span
+				<input name="search" class="form-control" id="search"
+					type="text" placeholder="Pesquisar Itens" 
+					value="<?php echo $view_termo??null ;?>"> <span
 					class="input-group-btn">
 					<button class="btn btn-primary" type="submit">Pesquisar</button>
 				</span>
 			</div>
+		</form>
 
 		</div>
 		<div class="col-sm-3">
