@@ -1,4 +1,5 @@
 <?php
+
 namespace application\models;
 
 class alunosModel extends \model {

@@ -5,6 +5,11 @@ namespace application\controllers;
 class professor extends \controller {
 	
 	public function listar() {
+		if (isset ( $_SESSION ['mensagem'] )) {
+			$data ['mensagem'] = $_SESSION ['mensagem'];
+			unset ( $_SESSION ['mensagem'] );
+		}
+		
 		$data ['pagina'] = parent::getController ();
 		$professor = new \application\models\professorModel ();
 		$professor_lista = $professor->select ();
@@ -21,12 +26,6 @@ class professor extends \controller {
 			$dadosFormulario ['funcionario'] = $_POST ['funcionario'] ?? '';
 			$dadosFormulario ['funcao'] = $_POST ['funcao'] ?? '';
 			$dadosFormulario ['ativo'] = $_POST ['ativo'] ?? '';
-			
-			/*
-			 * if (isset($dadosFormulario ['id_usuario']) && !empty($dadosFormulario ['id_usuario']))
-			 * echo "preencha corretamente id_usuario";
-			 * else
-			 */
 			$dadosFormulario ['id_usuario'] = $_POST ['id_usuario'] ?? '';
 			
 			// 1 - instanciar o model
@@ -76,6 +75,13 @@ class professor extends \controller {
 			// 1 - instanciar o model
 			$professorModel = new \application\models\professorModel ();
 			$professorModel->update ( $dadosFormulario, "id='$id'" );
+			$_SESSION ['mensagem'] = array (
+					'type' => 'success',
+					'info' => 'Editado com sucesso'
+			);
+				
+			header ( 'location: /maestro2/professor/listar' );
+			
 		}
 		
 		$this->loadView ( 'professor_adicionar', $data );
@@ -93,7 +99,7 @@ class professor extends \controller {
 		$professor = new \application\models\professorModel ();
 		$data ['termo'] = $_POST ['search'] ?? null;
 		$professor_lista = $professor->search ( $data ['termo'] );
-		$data ['professor'] = $professor_lista;
+		$data ['funcionario'] = $professor_lista;
 		
 		$this->loadView ( 'professor_lista', $data );
 	}

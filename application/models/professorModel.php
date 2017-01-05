@@ -24,5 +24,4 @@ class professorModel extends \model {
 
 }
 
-
 ?>
